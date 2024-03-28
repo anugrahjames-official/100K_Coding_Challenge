@@ -5,7 +5,6 @@ void sum();
 int main(void)
 {
     sum();
-    return 0;
 }
 
 void sum(){

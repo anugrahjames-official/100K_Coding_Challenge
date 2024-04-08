@@ -1,6 +1,6 @@
-# Welcome to Anugrah James's Coding Learning Repository
+# Welcome to Anugrah James's 100K Coding Challenge Learning Repository
 
-Welcome to my Coding Learning Repository! Here, I document my journey of mastering the programming languages. This repository serves as a testament to my dedication, progress, and problem-solving abilities.
+Welcome to my 100K Coding Challenge Learning Repository! Here, I document my journey of mastering the programming languages with 100K Coding Challenge by Brototype. This repository serves as a testament to my dedication, progress, and problem-solving abilities.
 
 ## About Me
 

@@ -10,7 +10,8 @@ import javax.swing.SwingConstants;
 public class Calculator implements ActionListener {
     JFrame jf;
     Boolean isOperatorClicked = false;
-    JLabel displayJLabel;
+    String oldValue;
+    JLabel displayJLabel, displayJLabel2;
     JButton sevenJButton;
     JButton eightJButton;
     JButton nineJButton;
@@ -46,9 +47,17 @@ public class Calculator implements ActionListener {
     public Calculator() {
         jf = new JFrame("Calculator");
         jf.setLayout(null);
-        jf.setSize(650, 600);
-        jf.setLocation(500, 100);
+        jf.setSize(1000, 600);
+        jf.setLocation(300, 100);
 
+        displayJLabel2 = new JLabel("This is just a Project for my learning purposes, Only Addition of Numbers is Working for Now other calculations will be added soon");
+        displayJLabel2.setBounds(0, 500, 1000, 50);
+        displayJLabel2.setBackground(Color.GREEN);
+        displayJLabel2.setOpaque(true);
+        displayJLabel2.setForeground(Color.RED);
+        displayJLabel2.setHorizontalAlignment(SwingConstants.CENTER);
+        jf.add(displayJLabel2);
+        
         displayJLabel = new JLabel();
         displayJLabel.setBounds(10, 10, 500, 50);
         displayJLabel.setBackground(Color.ORANGE);
@@ -231,39 +240,82 @@ public class Calculator implements ActionListener {
             }
     } else if (e.getSource() == eightJButton) {
         if (isOperatorClicked) {
-            displayJLabel.setText("8");}
-            
+            displayJLabel.setText("8");
+            isOperatorClicked = false;}
         else {
             displayJLabel.setText(displayJLabel.getText()+"8");
         }
     } else if (e.getSource() == nineJButton) {
-        displayJLabel.setText(displayJLabel.getText()+"9");
+        if (isOperatorClicked) {
+            displayJLabel.setText("9");
+            isOperatorClicked = false;}
+        else {
+        displayJLabel.setText(displayJLabel.getText()+"9");}
     } else if (e.getSource() == fourJButton) {
-        displayJLabel.setText(displayJLabel.getText()+"4");
+        if (isOperatorClicked) {
+            displayJLabel.setText("4");
+            isOperatorClicked = false;}
+        else {
+        displayJLabel.setText(displayJLabel.getText()+"4");}
     } else if (e.getSource() == fiveJButton) {
-        displayJLabel.setText(displayJLabel.getText()+"5");
+        if (isOperatorClicked) {
+            displayJLabel.setText("5");
+            isOperatorClicked = false;}
+        else {
+        displayJLabel.setText(displayJLabel.getText()+"5");}
     } else if (e.getSource() == sixJButton) {
-        displayJLabel.setText(displayJLabel.getText()+"6");
+        if (isOperatorClicked) {
+            displayJLabel.setText("6");
+            isOperatorClicked = false;}
+        else {
+        displayJLabel.setText(displayJLabel.getText()+"6");}
     } else if (e.getSource() == oneJButton) {
-        displayJLabel.setText(displayJLabel.getText()+"1");
+        if (isOperatorClicked) {
+            displayJLabel.setText("1");
+            isOperatorClicked = false;}
+        else {
+        displayJLabel.setText(displayJLabel.getText()+"1");}
     } else if (e.getSource() == twoJButton) {
-        displayJLabel.setText(displayJLabel.getText()+"2");
+        if (isOperatorClicked) {
+            displayJLabel.setText("2");
+            isOperatorClicked = false;}
+        else {
+        displayJLabel.setText(displayJLabel.getText()+"2");}
     } else if (e.getSource() == threeJButton) {
-        displayJLabel.setText(displayJLabel.getText()+"3");
+        if (isOperatorClicked) {
+            displayJLabel.setText("3");
+            isOperatorClicked = false;}
+        else {
+        displayJLabel.setText(displayJLabel.getText()+"3");}
     } else if (e.getSource() == zeroJButton) {
-        displayJLabel.setText(displayJLabel.getText()+"0");
+        if (isOperatorClicked) {
+            displayJLabel.setText("0");
+            isOperatorClicked = false;}
+        else {
+        displayJLabel.setText(displayJLabel.getText()+"0");}
     } else if (e.getSource() == dotJButton) {
         displayJLabel.setText(displayJLabel.getText()+".");
     } else if (e.getSource() == equalJButton) {
-        displayJLabel.setText(displayJLabel.getText()+"=");
+        String newValue = displayJLabel.getText();
+        float oldValueF = Float.parseFloat(oldValue);
+        float newValueF = Float.parseFloat(newValue);
+        float result = oldValueF+newValueF;
+        displayJLabel.setText(String.valueOf(result));
     } else if (e.getSource() == plusJButton) {
         isOperatorClicked = true;
+        oldValue=displayJLabel.getText();
         displayJLabel.setText(displayJLabel.getText()+"+");
     } else if (e.getSource() == minusJButton) {
+        isOperatorClicked = true;
+        oldValue=displayJLabel.getText();
         displayJLabel.setText(displayJLabel.getText()+"-");
     } else if (e.getSource() == multiplyJButton) {
+        isOperatorClicked = true;
+        oldValue=displayJLabel.getText();
         displayJLabel.setText(displayJLabel.getText()+"*");
     } else if (e.getSource() == divideJButton) {
+        isOperatorClicked = true;
+        oldValue=displayJLabel.getText();
         displayJLabel.setText(displayJLabel.getText()+"/");
     } else if (e.getSource() == clearJButton) {
         displayJLabel.setText("");

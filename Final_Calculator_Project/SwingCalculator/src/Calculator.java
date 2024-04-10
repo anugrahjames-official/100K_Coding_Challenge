@@ -9,12 +9,13 @@ import javax.swing.SwingConstants;
 
 public class Calculator implements ActionListener {
     JFrame jf;
+    Boolean isOperatorClicked = false;
     JLabel displayJLabel;
     JButton sevenJButton;
     JButton eightJButton;
     JButton nineJButton;
     JButton fourJButton;
-    JButton fiveButton;
+    JButton fiveJButton;
     JButton sixJButton;
     JButton oneJButton;
     JButton twoJButton;
@@ -27,6 +28,7 @@ public class Calculator implements ActionListener {
     JButton multiplyJButton;
     JButton divideJButton;
     JButton clearJButton;
+    JButton deleteJButton;
     JButton percentageJButton;
     JButton sqrtJButton;
     JButton sinJButton;
@@ -36,6 +38,10 @@ public class Calculator implements ActionListener {
     JButton piJButton;
     JButton eJButton;
     JButton factorialJButton;
+    JButton lnJButton;
+    JButton powJButton;
+    JButton leftbracketJButton;
+    JButton rightbracketJButton;
 
     public Calculator() {
         jf = new JFrame("Calculator");
@@ -43,7 +49,7 @@ public class Calculator implements ActionListener {
         jf.setSize(650, 600);
         jf.setLocation(500, 100);
 
-        displayJLabel = new JLabel("Hai");
+        displayJLabel = new JLabel();
         displayJLabel.setBounds(10, 10, 500, 50);
         displayJLabel.setBackground(Color.ORANGE);
         displayJLabel.setOpaque(true);
@@ -57,152 +63,152 @@ public class Calculator implements ActionListener {
         jf.add(sevenJButton);
 
 
-        JButton eightJButton = new JButton("8");
+        eightJButton = new JButton("8");
         eightJButton.setBounds(100, 70, 80, 80);
         eightJButton.addActionListener(this);
         jf.add(eightJButton);
 
-        JButton nineJButton = new JButton("9");
+        nineJButton = new JButton("9");
         nineJButton.setBounds(190, 70, 80, 80);
         nineJButton.addActionListener(this);
         jf.add(nineJButton);
 
-        JButton fourJButton = new JButton("4");
+        fourJButton = new JButton("4");
         fourJButton.setBounds(10, 160, 80, 80);
         fourJButton.addActionListener(this);
         jf.add(fourJButton);
 
-        JButton fiveJButton = new JButton("5");
+        fiveJButton = new JButton("5");
         fiveJButton.setBounds(100, 160, 80, 80);
         fiveJButton.addActionListener(this);
         jf.add(fiveJButton);
 
-        JButton sixJButton = new JButton("6");
+        sixJButton = new JButton("6");
         sixJButton.setBounds(190, 160, 80, 80);
         sixJButton.addActionListener(this);
         jf.add(sixJButton);
 
-        JButton oneJButton = new JButton("1");
+        oneJButton = new JButton("1");
         oneJButton.setBounds(10, 250, 80, 80);
         oneJButton.addActionListener(this);
         jf.add(oneJButton);
 
-        JButton twoJButton = new JButton("2");
+        twoJButton = new JButton("2");
         twoJButton.setBounds(100, 250, 80, 80);
         twoJButton.addActionListener(this);
         jf.add(twoJButton);
 
-        JButton threeJButton = new JButton("3");
+        threeJButton = new JButton("3");
         threeJButton.setBounds(190, 250, 80, 80);
         threeJButton.addActionListener(this);
         jf.add(threeJButton);
 
-        JButton zeroJButton = new JButton("0");
+        zeroJButton = new JButton("0");
         zeroJButton.setBounds(10, 340, 80, 80);
         zeroJButton.addActionListener(this);
         jf.add(zeroJButton);
 
-        JButton dotJButton = new JButton(".");
+        dotJButton = new JButton(".");
         dotJButton.setBounds(100, 340, 80, 80);
         dotJButton.addActionListener(this);
         jf.add(dotJButton);
 
-        JButton equalJButton = new JButton("=");
+        equalJButton = new JButton("=");
         equalJButton.setBounds(190, 340, 80, 80);
-        eightJButton.addActionListener(this);
+        equalJButton.addActionListener(this);
         jf.add(equalJButton);
 
-        JButton  plusJButton = new JButton("+");
+        plusJButton = new JButton("+");
         plusJButton.setBounds(280, 70, 80, 80);
         plusJButton.addActionListener(this);
         jf.add(plusJButton);
 
-        JButton minusJButton = new JButton("-");
+        minusJButton = new JButton("-");
         minusJButton.setBounds(280, 160, 80, 80);
         minusJButton.addActionListener(this);
         jf.add(minusJButton);
 
-        JButton multiplyJButton = new JButton("*");
+        multiplyJButton = new JButton("*");
         multiplyJButton.setBounds(280, 250, 80, 80);
         multiplyJButton.addActionListener(this);
         jf.add(multiplyJButton);
 
-        JButton divideJButton = new JButton("/");
+        divideJButton = new JButton("/");
         divideJButton.setBounds(280, 340, 80, 80);
         divideJButton.addActionListener(this);
         jf.add(divideJButton);
 
-        JButton clearJButton = new JButton("C");
+        clearJButton = new JButton("C");
         clearJButton.setBounds(10, 430, 80, 80);
         clearJButton.addActionListener(this);
         jf.add(clearJButton);
 
-        JButton deleteJButton = new JButton("Del");
+        deleteJButton = new JButton("Del");
         deleteJButton.setBounds(100, 430, 80, 80);
         deleteJButton.addActionListener(this);
         jf.add(deleteJButton);
 
-        JButton percentageJButton = new JButton("%");
+        percentageJButton = new JButton("%");
         percentageJButton.setBounds(190, 430, 80, 80);
         percentageJButton.addActionListener(this);
         jf.add(percentageJButton);
 
-        JButton sqrtJButton = new JButton("√");
+        sqrtJButton = new JButton("√");
         sqrtJButton.setBounds(280, 430, 80, 80);
         sqrtJButton.addActionListener(this);
         jf.add(sqrtJButton);
 
-        JButton sinJButton = new JButton("sin");
+        sinJButton = new JButton("sin");
         sinJButton.setBounds(370, 70, 80, 80);
         sinJButton.addActionListener(this);
         jf.add(sinJButton);
 
-        JButton cosJButton = new JButton("cos");
+        cosJButton = new JButton("cos");
         cosJButton.setBounds(370, 160, 80, 80);
         cosJButton.addActionListener(this);
         jf.add(cosJButton);
 
-        JButton tanJButton = new JButton("tan");
+        tanJButton = new JButton("tan");
         tanJButton.setBounds(370, 250, 80, 80);
         tanJButton.addActionListener(this);
         jf.add(tanJButton);
 
-        JButton logJButton = new JButton("log");
+        logJButton = new JButton("log");
         logJButton.setBounds(370, 340, 80, 80);
         logJButton.addActionListener(this);
         jf.add(logJButton);
 
-        JButton piJButton = new JButton("π");
+        piJButton = new JButton("π");
         piJButton.setBounds(370, 430, 80, 80);
         piJButton.addActionListener(this);
         jf.add(piJButton);
 
-        JButton eJButton = new JButton("e");
+        eJButton = new JButton("e");
         eJButton.setBounds(460, 70, 80, 80);
         eJButton.addActionListener(this);
         jf.add(eJButton);
-
-        JButton factorialJButton = new JButton("x!");
+        
+        factorialJButton = new JButton("!");
         factorialJButton.setBounds(460, 160, 80, 80);
         factorialJButton.addActionListener(this);
         jf.add(factorialJButton);
 
-        JButton lnJButton = new JButton("ln");
+        lnJButton = new JButton("ln");
         lnJButton.setBounds(460, 250, 80, 80);
         lnJButton.addActionListener(this);
         jf.add(lnJButton);
 
-        JButton powJButton = new JButton("x^y");
+        powJButton = new JButton("x^y");
         powJButton.setBounds(460, 340, 80, 80);
         powJButton.addActionListener(this);
         jf.add(powJButton);
 
-        JButton leftbracketJButton = new JButton("(");
+        leftbracketJButton = new JButton("(");
         leftbracketJButton.setBounds(460, 430, 80, 80);
         leftbracketJButton.addActionListener(this);
         jf.add(leftbracketJButton);
 
-        JButton rightbracketJButton = new JButton(")");
+        rightbracketJButton = new JButton(")");
         rightbracketJButton.setBounds(550, 70, 80, 80);
         rightbracketJButton.addActionListener(this);
         jf.add(rightbracketJButton);
@@ -216,6 +222,79 @@ public class Calculator implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == sevenJButton) {
+            if (isOperatorClicked == true) {
+                displayJLabel.setText("7");
+                isOperatorClicked = false;
+            } else {
+                displayJLabel.setText(displayJLabel.getText() + "7");
+            }
+    } else if (e.getSource() == eightJButton) {
+        if (isOperatorClicked) {
+            displayJLabel.setText("8");}
+            
+        else {
+            displayJLabel.setText(displayJLabel.getText()+"8");
+        }
+    } else if (e.getSource() == nineJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"9");
+    } else if (e.getSource() == fourJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"4");
+    } else if (e.getSource() == fiveJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"5");
+    } else if (e.getSource() == sixJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"6");
+    } else if (e.getSource() == oneJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"1");
+    } else if (e.getSource() == twoJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"2");
+    } else if (e.getSource() == threeJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"3");
+    } else if (e.getSource() == zeroJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"0");
+    } else if (e.getSource() == dotJButton) {
+        displayJLabel.setText(displayJLabel.getText()+".");
+    } else if (e.getSource() == equalJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"=");
+    } else if (e.getSource() == plusJButton) {
+        isOperatorClicked = true;
+        displayJLabel.setText(displayJLabel.getText()+"+");
+    } else if (e.getSource() == minusJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"-");
+    } else if (e.getSource() == multiplyJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"*");
+    } else if (e.getSource() == divideJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"/");
+    } else if (e.getSource() == clearJButton) {
+        displayJLabel.setText("");
+    } else if (e.getSource() == deleteJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"");
+    } else if (e.getSource() == percentageJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"%");
+    } else if (e.getSource() == sqrtJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"√");
+    } else if (e.getSource() == sinJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"sin");
+    } else if (e.getSource() == cosJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"cos");
+    } else if (e.getSource() == tanJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"tan");
+    } else if (e.getSource() == logJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"lg(");
+    } else if (e.getSource() == piJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"π");
+    } else if (e.getSource() == eJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"e");
+    } else if (e.getSource() == factorialJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"!");
+    } else if (e.getSource() == lnJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"ln(");
+    } else if (e.getSource() == powJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"^y");
+    } else if (e.getSource() == leftbracketJButton) {
+        displayJLabel.setText(displayJLabel.getText()+"(");
+    } else if (e.getSource() == rightbracketJButton) {
+        displayJLabel.setText(displayJLabel.getText()+")");
+    }
     }
 }
